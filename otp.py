@@ -1,8 +1,14 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sys, json, os, subprocess, base64, secrets, string, os.path
+import sys, json, os, subprocess, base64, string, os.path
 from itertools import cycle
+
+if not (sys.version_info > (3, 0)):
+    sys.stderr.write('Please use python3.\n')
+    exit(1)
+
+import secrets
 
 def useKey(i, force = False):
     f = get_file()
