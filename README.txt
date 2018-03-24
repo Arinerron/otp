@@ -1,9 +1,14 @@
 Examples:
 
+    To generate new keys:
+
+        ...backup your keys first if you want to keep them
+
+        $ python3 otp.py -g
+
     To encrypt:
         
         $ echo "Your message here..." | python3 otp.py -e > output.txt
-        $ python3 otp.py -i +1
         
         ...then send output.txt to whoever you want.
         
@@ -12,7 +17,6 @@ Examples:
         ...write the ciphertext (encrypted message) to output.txt
 
         $ cat output.txt | python3 otp.py -d
-        $ python3 otp.py -i +1
     
 What is the -i/--index option?
 
