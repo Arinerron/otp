@@ -1,2 +1,4 @@
 keys.json
 .keys.json.backup
+keys/*
+keys

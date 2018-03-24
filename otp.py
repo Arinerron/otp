@@ -113,16 +113,19 @@ elif args('-d', '--decrypt'):
     print(decrypt(base64.b64decode(m), i))
     useKey(i)
 elif args('-g', '--generate'):
-    confirm = input('Generating new keys will wipe the old keys, are you sure you want to proceed (y/N)? ')
+    confirm = 'y'
+    if os.path.isfile('keys.json'):
+        confirm = input('Generating new keys will wipe the old keys, are you sure you want to proceed (y/N)? ')
+    
     if confirm == 'y':
+        if os.path.isfile('keys.json'):
+            print('Making a backup of keys.json...')
+            os.system('cp keys.json .keys.json.backup')
+    
         length = 8192
         number = 1024
         
         keys = list()
-        
-        if os.path.isfile('keys.json'):
-            print('Making a backup of keys.json...')
-            os.system('cp keys.json .keys.json.backup')
         
         print('Creating ' + str(number) + ' new ' + str(length) + '-byte keys...')
         for i in range(0, number):
